@@ -7,7 +7,8 @@ alwaysApply: true
 
 Before implementing any feature, read:
 1. `docs/design-bible/` — **all design rules, mockups, tokens** (mandatory for UI)
-2. `docs/00-product-bible.md` — brand, positioning, business model
+2. `docs/market-positioning/` — **marketing copy and homepage messaging** (mandatory for user-facing text)
+3. `docs/00-product-bible.md` — brand, positioning, business model
 3. The relevant numbered spec in `docs/` (e.g. `docs/06-discover-feed.md`)
 4. `docs/25-build-order.md` — build sequence
 

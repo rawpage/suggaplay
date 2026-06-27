@@ -1,0 +1,33 @@
+---
+description: SuggaPlay Master Build Spec — mobile app build order and product rules
+globs: apps/mobile/**/*
+alwaysApply: false
+---
+
+# SuggaPlay Master Build (Mobile App)
+
+Before building any mobile feature, read:
+
+1. `docs/master-build/SUGGAPLAY-MASTER-BUILD-SPECIFICATION-v1.0.pdf`
+2. `docs/master-build/README.md`
+3. `docs/design-bible/00-design-tokens.md`
+4. `docs/market-positioning/README.md`
+
+## Build discipline
+
+- Follow the **12-step build order** in the Master Build Spec exactly
+- Stop after each step for review — do not skip ahead
+- Explain implementation plan before coding
+- Modify only files relevant to the current step
+
+## Product rules
+
+- Mobile app = the product. Website = marketing only
+- Dark mode first, editorial luxury aesthetic
+- No credits, tokens, or pay-per-message
+- Never use "user" in copy — use Applicant / Member
+- Brand line: "A private members' club for modern relationships."
+
+## Stack (mobile)
+
+Expo · React Native · TypeScript · Expo Router · NativeWind · React Query · Supabase · Stripe · RHF · Zod

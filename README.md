@@ -1,84 +1,50 @@
-# SuggaPlay
+# SuggaPlay Monorepo
 
-A production-ready Next.js 15 landing page for **SuggaPlay** — a creator platform where communities play, create, and connect.
+Two applications, one brand, one backend.
 
-## Tech Stack
+| App | Path | Stack | Deploy |
+|-----|------|-------|--------|
+| **Website** | `apps/website` | Next.js 15 | Vercel |
+| **Mobile** | `apps/mobile` | Expo + React Native | App Store / Play Store |
 
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **UI:** shadcn/ui
-- **Animation:** Framer Motion
-- **Icons:** Lucide React
-- **Forms:** React Hook Form + Zod
-- **Linting:** ESLint + Prettier
+Shared packages live in `packages/`. Database migrations live in `supabase/`.
 
-## Project Structure
+See [docs/MONOREPO.md](docs/MONOREPO.md) for full architecture.
 
-```
-app/           # Next.js App Router pages and layouts
-components/    # Reusable UI and landing page components
-  layout/      # Header, footer
-  landing/     # Landing page sections
-  motion/      # Framer Motion wrappers
-  ui/          # shadcn/ui components
-hooks/         # Custom React hooks
-lib/           # Utilities and constants
-services/      # API and business logic
-types/         # Shared TypeScript types
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18.18+
-- npm 9+
-
-### Installation
+## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local
-npm run dev
+cp .env.example .env.local          # shared Supabase credentials
+cp apps/website/.env.example apps/website/.env.local
+npm run dev:website                 # http://localhost:3000
+npm run dev:mobile                  # Expo dev server
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-### Scripts
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server (Turbopack) |
-| `npm run build` | Create production build |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
-| `npm run typecheck` | Run TypeScript checks |
+| `npm run dev:website` | Start brand website (Next.js) |
+| `npm run dev:mobile` | Start mobile app (Expo) |
+| `npm run build:website` | Production build for Vercel |
+| `npm run typecheck` | Typecheck all workspaces |
+| `npm run db:migrate` | Apply Supabase migrations |
 
-## Environment Variables
+## Vercel
 
-Copy `.env.example` to `.env.local` and configure:
+Set **Root Directory** to `apps/website` in the Vercel project settings, or use the root `vercel.json` which targets the website workspace.
 
-| Variable | Description |
-|----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Public site URL for metadata |
-| `NEXT_PUBLIC_WAITLIST_API_URL` | Optional waitlist API endpoint |
+## Structure
 
-## Deploy to Vercel
-
-1. Push this repository to GitHub.
-2. Import the project at [vercel.com/new](https://vercel.com/new).
-3. Vercel auto-detects Next.js — no extra configuration needed.
-4. Add environment variables from `.env.example` in the Vercel dashboard.
-5. Deploy.
-
-Alternatively, use the Vercel CLI:
-
-```bash
-npx vercel
 ```
-
-## License
-
-Private — All rights reserved.
+apps/
+  website/     Brand site — marketing, journal, applications, legal
+  mobile/      Product app — discover, profiles, messaging
+packages/
+  types/       Shared TypeScript types (Supabase schema)
+  supabase/    Shared Supabase client factories
+  tokens/      Shared design tokens
+supabase/      PostgreSQL migrations
+docs/          Product, design, and marketing documentation
+```

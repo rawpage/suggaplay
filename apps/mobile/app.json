@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "SuggaPlay",
+    "slug": "suggaplay",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "scheme": "suggaplay",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.suggaplay.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000"
+      },
+      "package": "com.suggaplay.app"
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "platforms": ["ios", "android"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

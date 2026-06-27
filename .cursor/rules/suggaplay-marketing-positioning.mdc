@@ -1,0 +1,44 @@
+---
+description: SuggaPlay marketing positioning — all copy must follow the brand positioning PDF only
+alwaysApply: true
+---
+
+# SuggaPlay Marketing Positioning
+
+Before writing **any** user-facing copy, read:
+
+1. `docs/market-positioning/SuggaPlay-Brand-Positioning.pdf` (source: `new brand.pdf`)
+2. `docs/market-positioning/README.md`
+
+## Brand descriptor (non-negotiable)
+
+**Not a dating app.**
+
+> A private members' club for modern relationships.
+
+## Homepage copy (use verbatim where marked)
+
+- **Headline:** Meet people who live life on their own terms.
+- **Sub:** For beautiful connections, honest intentions and unforgettable chemistry.
+- **Solution:** Built around honesty.
+- **Membership:** One membership. Unlimited conversations. No credits. No tokens. No counting every message.
+
+## Emotional tone
+
+Luxury fashion campaign — Saint Laurent, Soho House, Jacquemus energy. Not corporate startup copy. Not LinkedIn.
+
+Use *lust* where the brief does — it is honest, human, and on-brand.
+
+## Do not use (retired copy)
+
+- "Meet successful people who know what they want." (too corporate)
+- "Premium dating platform" as primary identity
+- "Dating app" as brand descriptor
+- Pricing psychology / overselling (founding cap badges, etc.) on homepage
+- Copy from the old Brand & Marketing Brief unless it also appears in `SuggaPlay-Brand-Positioning.pdf`
+
+## When copy conflicts
+
+`docs/market-positioning/SuggaPlay-Brand-Positioning.pdf` wins for **all marketing and homepage copy**.
+
+Product bible wins for **features and business rules**. Design bible wins for **visual design**.

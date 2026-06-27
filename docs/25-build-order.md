@@ -6,6 +6,7 @@ Follow this sequence exactly. One feature per session. Commit after each step.
 |---|---|---|
 | 1 | `01-overview` | ✅ Project setup (Next.js, Tailwind, shadcn, structure) |
 | 2 | `03-database` | Supabase schema + migrations |
+| 2b | `market-positioning/` | ✅ Brand & Marketing Brief + homepage copy (before auth) |
 | 3 | `04-authentication` | Auth pages + middleware |
 | 4 | `05-onboarding` | Multi-step onboarding wizard |
 | 5 | `06-discover-feed` | Tinder-style member feed |
@@ -26,7 +27,7 @@ Follow this sequence exactly. One feature per session. Commit after each step.
 ## Cursor prompt pattern (every feature)
 
 ```
-Read docs/XX-feature-name.md and docs/00-product-bible.md.
+Read docs/XX-feature-name.md, docs/market-positioning/README.md, and docs/00-product-bible.md.
 Inspect the existing codebase first.
 Explain your implementation plan.
 Wait for approval.
@@ -36,8 +37,9 @@ Do not break existing functionality.
 
 ## Current status
 
-- **Step 1:** Done (project scaffold + landing page — editorial realignment pending)
+- **Step 1:** Done (project scaffold)
 - **Step 2:** Done (Supabase schema in `supabase/migrations/` — apply to your project)
+- **Step 2b:** Done (`docs/market-positioning/` — homepage aligned to Brand & Marketing Brief)
 - **Step 3:** Next — Authentication
 
 ## External services needed now
