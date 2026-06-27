@@ -1,75 +1,55 @@
-import type { Feature, NavLink } from "@/types";
+import type { NavLink } from "@/types";
 
 export const SITE_NAME = "SuggaPlay";
-export const SITE_TAGLINE = "Play. Create. Connect.";
+export const SITE_TAGLINE = "Where successful people meet without the games.";
 export const SITE_DESCRIPTION =
-  "The next-generation platform where creators, fans, and communities come together to play, share, and grow.";
+  "Premium connections in London. Women join free forever. Men pay one monthly membership for unlimited access — no credits, no tokens, no hidden costs.";
+
+export const LAUNCH_CITY = "London";
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "#features" },
+  { label: "Membership", href: "#membership" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Waitlist", href: "#waitlist" },
+  { label: "Early Access", href: "#waitlist" },
 ];
 
-export const FEATURES: Feature[] = [
+export const MEMBERSHIP_POINTS = [
   {
-    id: "live-play",
-    title: "Live Play Sessions",
-    description:
-      "Host interactive sessions with real-time engagement, polls, and rewards that keep your audience hooked.",
-    icon: "Radio",
+    title: "Unlimited messages",
+    description: "No pay-per-message. No unlocking conversations.",
   },
   {
-    id: "creator-tools",
-    title: "Creator Studio",
-    description:
-      "Professional-grade tools to produce, schedule, and monetize content — all from one beautiful dashboard.",
-    icon: "Sparkles",
+    title: "Full profile access",
+    description: "See visitors, favourites, and private albums when granted.",
   },
   {
-    id: "community",
-    title: "Community Hub",
-    description:
-      "Build loyal fan communities with exclusive perks, tiered memberships, and direct creator-to-fan connections.",
-    icon: "Users",
-  },
-  {
-    id: "analytics",
-    title: "Smart Analytics",
-    description:
-      "Understand what resonates with actionable insights on engagement, retention, and revenue growth.",
-    icon: "BarChart3",
-  },
-  {
-    id: "rewards",
-    title: "Reward Engine",
-    description:
-      "Gamify the experience with points, badges, and unlockables that turn casual viewers into superfans.",
-    icon: "Trophy",
-  },
-  {
-    id: "secure",
-    title: "Secure & Scalable",
-    description:
-      "Enterprise-grade infrastructure built to scale from your first stream to millions of concurrent viewers.",
-    icon: "Shield",
+    title: "One monthly fee",
+    description: "Membership, not microtransactions. Pay once. Use freely.",
   },
 ];
 
 export const HOW_IT_WORKS_STEPS = [
   {
-    step: 1,
-    title: "Join the Waitlist",
-    description: "Sign up early and secure your spot as a founding creator or fan.",
+    step: "01",
+    title: "Request early access",
+    description:
+      "Women join free forever. Men secure founding membership before launch.",
   },
   {
-    step: 2,
-    title: "Set Up Your Profile",
-    description: "Customize your space, connect your channels, and invite your community.",
+    step: "02",
+    title: "Build your profile",
+    description:
+      "Upload photos, add your headline, and complete verification.",
   },
   {
-    step: 3,
-    title: "Start Playing",
-    description: "Go live, engage your audience, and watch your community thrive.",
+    step: "03",
+    title: "Enter the member feed",
+    description:
+      "Browse, message, and connect — unlimited, without credit anxiety.",
   },
 ];
+
+export const COMPARISON = {
+  them: "Pay per message. Pay to unlock. Pay to see who liked you.",
+  us: "One membership. Unlimited access. No surprises.",
+};

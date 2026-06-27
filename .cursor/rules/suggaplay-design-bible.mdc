@@ -1,0 +1,28 @@
+---
+description: SuggaPlay design bible — all visual/UI decisions must come from docs/design-bible/
+alwaysApply: true
+---
+
+# Design Bible (mandatory for UI work)
+
+Before writing or changing **any** UI, styling, layout, colours, typography, or components:
+
+1. Read **`docs/design-bible/00-design-tokens.md`** first
+2. Read **`docs/design-bible/brand/SuggaPlay_Master_Design_Bible_1.pdf`** and **`SuggaPlay_Editorial_Design_Bible_2.pdf`**
+3. Review **`docs/design-bible/screens/`** reference images
+4. Cross-reference `docs/22-ui-design-system.md` for Tailwind/shadcn mapping only
+
+## Rules
+
+- **Do not guess** colours, fonts, border radius, spacing, or layout if the design bible specifies them
+- **Do not** copy Secret Benefits or generic dating-site aesthetics unless the design bible says so
+- **Match mockups** in `docs/design-bible/screens/` pixel-close where specs exist
+- If the design bible is **silent** on a detail, ask the user — do not invent premium brand styling
+- Export design tokens (CSS variables / Tailwind theme) from the bible into `app/globals.css` when building the design system step
+
+## Priority order
+
+1. `docs/design-bible/` — visual truth
+2. `docs/00-product-bible.md` — brand tone & positioning
+3. `docs/22-ui-design-system.md` — implementation conventions
+4. Existing shadcn/ui defaults — **lowest** priority; override to match bible

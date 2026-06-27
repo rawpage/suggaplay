@@ -1,35 +1,31 @@
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
-import { NAV_LINKS, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import { LAUNCH_CITY, NAV_LINKS, SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-border/50 border-t">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-[1.5fr_1fr]">
+    <footer className="border-t border-border bg-black text-white">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12">
+        <div className="grid gap-12 md:grid-cols-[2fr_1fr]">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="bg-brand-gradient flex size-8 items-center justify-center rounded-lg text-sm font-bold text-white">
-                S
-              </span>
-              <span className="text-lg font-semibold">{SITE_NAME}</span>
-            </div>
-            <p className="text-muted-foreground mt-3 max-w-sm text-sm leading-relaxed">
-              {SITE_TAGLINE} The platform built for creators who play big and
-              communities that show up.
+            <p className="text-lg font-semibold tracking-tight">{SITE_NAME}</p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-400">
+              {SITE_DESCRIPTION}
+            </p>
+            <p className="text-editorial-label mt-8 text-neutral-500">
+              Launching in {LAUNCH_CITY}
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold">Quick Links</p>
-            <ul className="mt-3 space-y-2">
+            <p className="text-editorial-label text-neutral-500">Navigate</p>
+            <ul className="mt-4 space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    className="text-sm text-neutral-300 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -39,15 +35,15 @@ export function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8" />
-
-        <div className="text-muted-foreground flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {year} {SITE_NAME}. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="#" className="hover:text-foreground transition-colors">
+        <div className="mt-16 flex flex-col gap-4 border-t border-neutral-800 pt-8 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            &copy; {year} {SITE_NAME}. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            <Link href="#" className="transition-colors hover:text-white">
               Privacy
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="#" className="transition-colors hover:text-white">
               Terms
             </Link>
           </div>

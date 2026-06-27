@@ -1,19 +1,13 @@
 export interface WaitlistEntry {
   email: string;
   name?: string;
+  gender?: "man" | "woman";
 }
 
 export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
-}
-
-export interface Feature {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
 }
 
 export interface NavLink {

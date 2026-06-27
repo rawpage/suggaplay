@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const geistSans = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://suggaplay.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.suggaplay.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: [
     "SuggaPlay",
-    "creator platform",
-    "live streaming",
-    "community",
-    "entertainment",
+    "premium dating",
+    "London dating",
+    "membership dating",
+    "exclusive connections",
   ],
   authors: [{ name: SITE_NAME }],
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: siteUrl,
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
@@ -57,9 +57,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en">
       <body
-        className={`${plusJakarta.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         {children}
       </body>

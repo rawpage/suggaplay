@@ -5,6 +5,22 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "suggaplay.com" }],
+        destination: "https://www.suggaplay.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 
