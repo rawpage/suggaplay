@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SuggaPlay
+
+A production-ready Next.js 15 landing page for **SuggaPlay** — a creator platform where communities play, create, and connect.
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **UI:** shadcn/ui
+- **Animation:** Framer Motion
+- **Icons:** Lucide React
+- **Forms:** React Hook Form + Zod
+- **Linting:** ESLint + Prettier
+
+## Project Structure
+
+```
+app/           # Next.js App Router pages and layouts
+components/    # Reusable UI and landing page components
+  layout/      # Header, footer
+  landing/     # Landing page sections
+  motion/      # Framer Motion wrappers
+  ui/          # shadcn/ui components
+hooks/         # Custom React hooks
+lib/           # Utilities and constants
+services/      # API and business logic
+types/         # Shared TypeScript types
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.18+
+- npm 9+
+
+### Installation
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (Turbopack) |
+| `npm run build` | Create production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format code with Prettier |
+| `npm run typecheck` | Run TypeScript checks |
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Copy `.env.example` to `.env.local` and configure:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Public site URL for metadata |
+| `NEXT_PUBLIC_WAITLIST_API_URL` | Optional waitlist API endpoint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+1. Push this repository to GitHub.
+2. Import the project at [vercel.com/new](https://vercel.com/new).
+3. Vercel auto-detects Next.js — no extra configuration needed.
+4. Add environment variables from `.env.example` in the Vercel dashboard.
+5. Deploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Alternatively, use the Vercel CLI:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vercel
+```
+
+## License
+
+Private — All rights reserved.
