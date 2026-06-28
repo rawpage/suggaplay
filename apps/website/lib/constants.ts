@@ -25,7 +25,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CLUB_INTRO =
-  "SuggaPlay is a curated members' club for ambitious and open-minded people. Whether you're looking for love, lust, luxury or something in between, you'll meet people who are honest about what they're looking for from the very beginning.";
+  "SuggaPlay is a curated members' club for ambitious and open-minded people. Whether you're looking for love, intimacy, luxury or something in between, you'll meet people who are honest about what they're looking for from the very beginning.";
 
 export const PROBLEM_HEADLINE = "Dating shouldn't feel like guesswork.";
 
