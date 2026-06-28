@@ -15,7 +15,7 @@ export const SITE_HERO_BODY =
 
 export const SITE_DESCRIPTION = BRAND_DESCRIPTOR;
 
-export const LAUNCH_CITY = "London";
+export const LAUNCH_LABEL = "Global";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Preferences", href: "#intentions" },
@@ -25,7 +25,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CLUB_INTRO =
-  "SuggaPlay is a curated members' club for ambitious, attractive and open-minded people. Whether you're looking for love, lust, luxury or something in between, you'll meet people who are honest about what they're looking for from the very beginning.";
+  "SuggaPlay is a curated members' club for ambitious and open-minded people. Whether you're looking for love, lust, luxury or something in between, you'll meet people who are honest about what they're looking for from the very beginning.";
 
 export const PROBLEM_HEADLINE = "Dating shouldn't feel like guesswork.";
 
@@ -75,14 +75,6 @@ export const MEMBERSHIP_INTRO = [
 
 export const MEMBERSHIP_INTRO_CLOSING =
   "Just one simple membership designed to let you focus on meeting people, not counting messages.";
-
-export const MEMBERSHIP_WOMEN = {
-  title: "Women",
-  price: "Free",
-  description:
-    "Join the community, create a verified profile and start connecting with members.",
-  note: "Subject to our curated membership and community guidelines.",
-};
 
 export const MEMBERSHIP_FOUNDING = {
   title: "Founding Membership",
@@ -143,7 +135,7 @@ export const PERMISSION_INTRO = [
 
 export const PERMISSION_DESIRES = [
   "Love.",
-  "Sex.",
+  "Intimacy.",
   "Adventure.",
   "Luxury.",
   "A travel companion.",
@@ -173,4 +165,4 @@ export const HOW_IT_WORKS_STEPS = [
 
 export const WAITLIST_HEADLINE = "Request your membership.";
 
-export const WAITLIST_BODY = `${BRAND_DESCRIPTOR} Join the curated community launching in ${LAUNCH_CITY}.`;
+export const WAITLIST_BODY = `${BRAND_DESCRIPTOR} Join the curated global community.`;

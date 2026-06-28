@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { editorialImageSrc } from "@/lib/editorial-images";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +29,9 @@ export function EditorialImage({
   sizes = "(max-width: 768px) 50vw, 25vw",
   aspect = "portrait",
 }: EditorialImageProps) {
+  const [failed, setFailed] = useState(false);
+  const src = editorialImageSrc(id);
+
   return (
     <div
       className={cn(
@@ -34,14 +40,19 @@ export function EditorialImage({
         className,
       )}
     >
-      <Image
-        src={editorialImageSrc(id)}
-        alt={alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className="object-cover"
-      />
+      {!failed ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes={sizes}
+          className="object-cover"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-neutral-200" aria-hidden="true" />
+      )}
     </div>
   );
 }

@@ -15,30 +15,26 @@ export function Intentions() {
   const images = sectionAccentImages(8, 6);
 
   return (
-    <section id="intentions" className="border-b border-border bg-black text-white">
-      <div className="grid lg:grid-cols-[1fr_340px]">
-        <div className="px-6 py-24 sm:py-32 lg:px-10 xl:px-14">
+    <section id="intentions" className="bg-white">
+      <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px] lg:gap-10 xl:gap-14">
+        <div className="py-16 sm:py-24 lg:py-32">
           <FadeIn>
-            <EditorialKicker className="text-neutral-500">
-              Flexible preferences
-            </EditorialKicker>
-            <h2 className="text-editorial-section mt-6 max-w-2xl text-white">
+            <EditorialKicker>Flexible preferences</EditorialKicker>
+            <h2 className="text-editorial-section mt-6 max-w-2xl">
               {INTENTIONS_HEADLINE}
             </h2>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-neutral-300">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed">
               {INTENTIONS_INTRO}
             </p>
-            <p className="text-editorial-kicker mt-6 text-neutral-500">
-              {INTENTIONS_CHOOSE}
-            </p>
+            <p className="text-editorial-kicker mt-6">{INTENTIONS_CHOOSE}</p>
           </FadeIn>
 
           <FadeIn delay={0.1} className="mt-16">
-            <ul className="grid gap-px bg-neutral-800 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
               {RELATIONSHIP_PREFERENCES.map((pref) => (
                 <li
                   key={pref.label}
-                  className="flex items-center gap-4 bg-black px-5 py-5 transition-colors hover:bg-neutral-950"
+                  className="flex items-center gap-4 bg-background px-5 py-5 transition-colors hover:bg-neutral-50"
                 >
                   <span className="text-xl" aria-hidden="true">
                     {pref.icon}
@@ -49,22 +45,20 @@ export function Intentions() {
             </ul>
           </FadeIn>
 
-          <FadeIn delay={0.2} className="mt-24 border-t border-neutral-800 pt-16">
+          <FadeIn delay={0.2} className="mt-24 pt-16">
             <EditorialKicker className="text-brand">{SOLUTION_HEADLINE}</EditorialKicker>
-            <p className="text-editorial-headline mt-6 max-w-2xl text-neutral-200">
-              {SOLUTION_BODY}
-            </p>
+            <p className="text-editorial-headline mt-6 max-w-2xl">{SOLUTION_BODY}</p>
           </FadeIn>
         </div>
 
-        <aside className="hidden border-l border-neutral-800 lg:grid lg:grid-rows-3">
+        <aside className="hidden lg:flex lg:flex-col lg:pt-32">
           {images.map((id) => (
             <EditorialImage
               key={id}
               id={id}
-              aspect="auto"
-              className="min-h-[220px] border-b border-neutral-800 last:border-b-0"
-              sizes="340px"
+              aspect="portrait"
+              className="flex-1"
+              sizes="320px"
             />
           ))}
         </aside>

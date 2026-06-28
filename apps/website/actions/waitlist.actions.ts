@@ -33,7 +33,6 @@ export async function submitWaitlistAction(
       name: parsed.data.name,
       email: parsed.data.email.toLowerCase(),
       gender: parsed.data.gender,
-      city: "London",
     });
 
     if (error) {

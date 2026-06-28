@@ -14,7 +14,7 @@ export function EditorialSectionTitle({
   return (
     <h2
       className={cn(
-        "text-editorial-section border-b border-border pb-6",
+        "text-editorial-section pb-6",
         className,
       )}
     >

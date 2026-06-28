@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "SuggaPlay",
     "members club",
     "modern relationships",
-    "London",
+    "Global",
     "relationship preferences",
   ],
   authors: [{ name: SITE_NAME }],

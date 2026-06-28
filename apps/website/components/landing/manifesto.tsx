@@ -4,15 +4,15 @@ import { MANIFESTO_BELIEFS } from "@/lib/constants";
 
 export function Manifesto() {
   return (
-    <section className="border-b border-border bg-black py-24 text-white sm:py-32">
-      <div className="px-6 lg:px-10 xl:px-14">
+    <section className="bg-white py-24 sm:py-32">
+      <div>
         <FadeIn>
-          <EditorialKicker className="text-neutral-500">We believe</EditorialKicker>
+          <EditorialKicker>We believe</EditorialKicker>
           <ul className="mt-12 max-w-4xl space-y-10">
             {MANIFESTO_BELIEFS.map((belief) => (
               <li
                 key={belief}
-                className="text-editorial-headline text-white sm:text-4xl lg:text-5xl"
+                className="text-editorial-headline sm:text-4xl lg:text-5xl"
               >
                 {belief}
               </li>

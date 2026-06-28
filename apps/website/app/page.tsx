@@ -10,6 +10,7 @@ import { EditorialMosaic } from "@/components/editorial/editorial-mosaic";
 import { EditorialSectionTitle } from "@/components/editorial/editorial-section";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { LAUNCH_LABEL } from "@/lib/constants";
 import { interleavedHomepageImages, sectionAccentImages } from "@/lib/editorial-images";
 
 export default function Home() {
@@ -19,10 +20,11 @@ export default function Home() {
     <>
       <Header />
       <div className="lg:pl-[220px] xl:pl-[260px]">
-        <main>
+        <div className="overflow-x-hidden px-6 lg:mr-[72px] lg:min-h-screen lg:pl-10 lg:pr-0 xl:mr-[96px] xl:pl-14">
+          <main>
           <Hero />
 
-          <section className="border-b border-border px-6 py-12 lg:px-10 xl:px-14">
+          <section className="py-12">
             <EditorialSectionTitle className="mb-10">
               Members
             </EditorialSectionTitle>
@@ -31,22 +33,22 @@ export default function Home() {
 
           <Intentions />
 
-          <section className="border-b border-border bg-neutral-50 px-6 py-12 lg:px-10 xl:px-14">
+          <section className="bg-neutral-50 py-12">
             <EditorialMosaic ids={gallery.slice(24, 40)} columns={4} />
           </section>
 
           <Problem />
 
-          <section className="border-b border-border px-6 py-12 lg:px-10 xl:px-14">
+          <section className="py-12">
             <EditorialSectionTitle className="mb-10">
-              London
+              {LAUNCH_LABEL}
             </EditorialSectionTitle>
             <EditorialMosaic ids={gallery.slice(40, 56)} columns={4} />
           </section>
 
           <Membership />
 
-          <section className="border-b border-border bg-black px-6 py-12 lg:px-10 xl:px-14">
+          <section className="py-12">
             <EditorialMosaic ids={sectionAccentImages(56, 8)} columns={4} />
           </section>
 
@@ -54,7 +56,7 @@ export default function Home() {
 
           <Manifesto />
 
-          <section className="border-b border-border px-6 py-12 lg:px-10 xl:px-14">
+          <section className="py-12">
             <EditorialMosaic ids={gallery.slice(0, 12)} columns={6} />
           </section>
 
@@ -62,7 +64,12 @@ export default function Home() {
           <WaitlistForm />
         </main>
         <Footer />
+        </div>
       </div>
+      <div
+        aria-hidden
+        className="fixed inset-y-0 right-0 z-40 hidden w-[72px] bg-background lg:block xl:w-[96px]"
+      />
     </>
   );
 }

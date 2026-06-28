@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { LAUNCH_CITY, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { LAUNCH_LABEL, NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -20,7 +20,7 @@ export function Header() {
   return (
     <>
       {/* Desktop — W-style left rail */}
-      <header className="fixed inset-y-0 left-0 z-50 hidden w-[220px] flex-col border-r border-border bg-background px-8 py-10 lg:flex xl:w-[260px]">
+      <header className="fixed inset-y-0 left-0 z-50 hidden w-[220px] flex-col bg-background px-8 py-10 lg:flex xl:w-[260px]">
         <Link
           href="/"
           className="font-editorial text-5xl font-normal leading-none tracking-tight"
@@ -28,26 +28,24 @@ export function Header() {
           {SITE_NAME.slice(0, 1)}
         </Link>
 
-        <p className="text-editorial-label text-muted-foreground mt-3">
-          {LAUNCH_CITY}
-        </p>
+        <p className="text-editorial-label mt-3">{LAUNCH_LABEL}</p>
 
         <nav className="mt-14 flex flex-1 flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-editorial-nav hover:text-muted-foreground transition-colors"
+              className="text-editorial-nav hover:opacity-70 transition-opacity"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="space-y-4 border-t border-border pt-8">
+        <div className="space-y-4 pt-8">
           <Link
             href="#waitlist"
-            className="text-editorial-label text-muted-foreground hover:text-foreground block transition-colors"
+            className="text-editorial-label hover:opacity-70 block transition-opacity"
           >
             Sign In
           </Link>
