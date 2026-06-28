@@ -13,7 +13,9 @@ export const SITE_TAGLINE = SITE_HEADLINE;
 export const SITE_HERO_BODY =
   "For beautiful connections, honest intentions and unforgettable chemistry.";
 
-export const SITE_DESCRIPTION = BRAND_DESCRIPTOR;
+/** Meta description — ~155 chars for search & social snippets */
+export const SITE_DESCRIPTION =
+  "Meet people who live life on their own terms. A private members' club for modern relationships. One membership, unlimited conversations — no credits, no tokens.";
 
 export const LAUNCH_LABEL = "Global";
 

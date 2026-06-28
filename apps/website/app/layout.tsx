@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
-import { BRAND_DESCRIPTOR, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  BRAND_DESCRIPTOR,
+  SITE_DESCRIPTION,
+  SITE_HEADLINE,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from "@/lib/constants";
+import { getSiteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,8 +29,7 @@ const editorialSerif = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.suggaplay.com";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -31,20 +38,25 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "SuggaPlay",
-    "members club",
-    "modern relationships",
-    "Global",
-    "relationship preferences",
-  ],
-  authors: [{ name: SITE_NAME }],
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: siteUrl }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "lifestyle",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
     url: siteUrl,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${BRAND_DESCRIPTOR}`,
+    title: `${SITE_NAME} — ${SITE_HEADLINE}`,
     description: SITE_DESCRIPTION,
   },
   twitter: {
@@ -55,6 +67,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -64,10 +83,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${editorialSerif.variable} min-h-screen antialiased`}
       >
+        <JsonLd />
         {children}
       </body>
     </html>
