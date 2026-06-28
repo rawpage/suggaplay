@@ -8,53 +8,46 @@ import { LAUNCH_CITY, NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border bg-background/95 backdrop-blur-sm"
-          : "bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
-        <Link href="/" className="text-sm font-semibold tracking-tight">
-          {SITE_NAME}
+    <>
+      {/* Desktop — W-style left rail */}
+      <header className="fixed inset-y-0 left-0 z-50 hidden w-[220px] flex-col border-r border-border bg-background px-8 py-10 lg:flex xl:w-[260px]">
+        <Link
+          href="/"
+          className="font-editorial text-5xl font-normal leading-none tracking-tight"
+        >
+          {SITE_NAME.slice(0, 1)}
         </Link>
 
-        <p className="text-editorial-label text-muted-foreground hidden sm:block">
+        <p className="text-editorial-label text-muted-foreground mt-3">
           {LAUNCH_CITY}
         </p>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="mt-14 flex flex-1 flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-editorial-label text-muted-foreground hover:text-foreground transition-colors"
+              className="text-editorial-nav hover:text-muted-foreground transition-colors"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="space-y-4 border-t border-border pt-8">
           <Link
             href="#waitlist"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "sm" }),
-              "text-editorial-label rounded-none px-0 hover:bg-transparent",
-            )}
+            className="text-editorial-label text-muted-foreground hover:text-foreground block transition-colors"
           >
             Sign In
           </Link>
@@ -62,31 +55,36 @@ export function Header() {
             href="#waitlist"
             className={cn(
               buttonVariants({ size: "sm" }),
-              "bg-brand hover:bg-brand/90 rounded-none px-5 text-white",
+              "bg-brand hover:bg-brand/90 w-full rounded-none text-white",
             )}
           >
             Request Membership
           </Link>
         </div>
+      </header>
 
+      {/* Mobile top bar */}
+      <header className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-border bg-background/95 px-6 backdrop-blur-sm lg:hidden">
+        <Link href="/" className="font-editorial text-2xl">
+          {SITE_NAME.slice(0, 1)}
+        </Link>
         <button
           type="button"
-          className="md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((open) => !open)}
         >
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
-      </div>
+      </header>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background md:hidden">
-          <nav className="flex flex-col gap-1 px-6 py-4">
+        <div className="fixed inset-0 z-40 bg-background pt-14 lg:hidden">
+          <nav className="flex flex-col gap-6 px-8 py-10">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-editorial-label py-3"
+                className="text-editorial-nav"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -96,7 +94,7 @@ export function Header() {
               href="#waitlist"
               className={cn(
                 buttonVariants(),
-                "bg-brand hover:bg-brand/90 mt-4 rounded-none text-white",
+                "bg-brand hover:bg-brand/90 mt-6 rounded-none text-white",
               )}
               onClick={() => setMobileOpen(false)}
             >
@@ -105,6 +103,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

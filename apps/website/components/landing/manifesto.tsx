@@ -1,17 +1,18 @@
 import { FadeIn } from "@/components/motion/fade-in";
+import { EditorialKicker } from "@/components/editorial/editorial-section";
 import { MANIFESTO_BELIEFS } from "@/lib/constants";
 
 export function Manifesto() {
   return (
-    <section className="border-t border-border bg-black py-24 text-white sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="border-b border-border bg-black py-24 text-white sm:py-32">
+      <div className="px-6 lg:px-10 xl:px-14">
         <FadeIn>
-          <p className="text-editorial-label text-neutral-500 mb-10">We believe</p>
-          <ul className="max-w-3xl space-y-8">
+          <EditorialKicker className="text-neutral-500">We believe</EditorialKicker>
+          <ul className="mt-12 max-w-4xl space-y-10">
             {MANIFESTO_BELIEFS.map((belief) => (
               <li
                 key={belief}
-                className="text-2xl font-medium leading-snug tracking-tight sm:text-3xl lg:text-4xl"
+                className="text-editorial-headline text-white sm:text-4xl lg:text-5xl"
               >
                 {belief}
               </li>

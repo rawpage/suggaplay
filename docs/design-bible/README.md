@@ -11,6 +11,7 @@
 | `SuggaPlay_Editorial_Design_Bible_2.pdf` | `brand/` | Editorial vision, anti-patterns, screen rules |
 | `editorial-layout-reference-1.png` | `screens/` | Red/black + dark editorial layout refs |
 | `editorial-layout-reference-2.png` | `screens/` | Monochrome portfolio / Katie Hunter style ref |
+| `assets/cosmos/` | `assets/` | **34 images** from [Cosmos SuggaPlay board](https://www.cosmos.so/rawlove/suggaplay) — see `manifest.json` |
 
 ## Read order for Cursor
 
@@ -24,6 +25,7 @@
 - [x] Brand / master design bible PDFs
 - [x] Editorial design bible PDF
 - [x] Editorial layout references
+- [x] Cosmos mood board image library (`assets/cosmos/` — 204 assets via GraphQL sync)
 - [ ] Logo / wordmark assets (when ready)
 - [ ] Per-screen mockups (discover, profile, chat — when ready)
 - [ ] Figma link (optional)

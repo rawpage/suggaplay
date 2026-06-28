@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import { BRAND_DESCRIPTOR, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 import "./globals.css";
 
@@ -12,6 +12,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const editorialSerif = Cormorant_Garamond({
+  variable: "--font-editorial",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const siteUrl =
@@ -59,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${editorialSerif.variable} min-h-screen antialiased`}
       >
         {children}
       </body>

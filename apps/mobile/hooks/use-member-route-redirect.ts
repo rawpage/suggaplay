@@ -33,6 +33,10 @@ export function useMemberRouteRedirect(options?: { enabled?: boolean }) {
     const onSplash = pathname === "/" || pathname === "/index";
     if (onSplash) return;
 
+    // Reset deep links sign the user in, then land here to set a new password.
+    // Don't bounce them to their lifecycle route until that's done.
+    if (pathname.includes("update-password")) return;
+
     if (!routeMatchesSegments(route, segments)) {
       router.replace(route);
     }

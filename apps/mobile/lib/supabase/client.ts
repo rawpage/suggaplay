@@ -31,6 +31,9 @@ export function createSupabaseClient(): SupabaseClient<Database> {
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: false,
+      // PKCE is the recommended flow for native apps; magic-link and password
+      // reset emails return a `code` we exchange for a session via deep link.
+      flowType: "pkce",
     },
   });
 }

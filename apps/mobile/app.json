@@ -20,8 +20,15 @@
       },
       "package": "com.suggaplay.app"
     },
-    "plugins": ["expo-router", "expo-secure-store"],
-    "platforms": ["ios", "android"],
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-web-browser"
+    ],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "experiments": {
       "typedRoutes": true
     }

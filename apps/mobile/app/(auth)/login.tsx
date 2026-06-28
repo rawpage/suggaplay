@@ -1,46 +1,35 @@
 import { useState } from "react";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { View } from "react-native";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Screen } from "@/components/ui/screen";
 import { Text } from "@/components/ui/text";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { FormField } from "@/components/ui/form-field";
 import { useSession } from "@/hooks/use-session";
 import { BRAND_DESCRIPTOR, BRAND_NAME } from "@/lib/constants";
-import { getSupabase, isSupabaseConfigured } from "@/lib/supabase/client";
+import { loginSchema, type LoginValues } from "@/lib/auth/schemas";
+import { signInWithPassword } from "@/lib/auth/auth-service";
 
 export default function LoginScreen() {
+  const router = useRouter();
   const { configError } = useSession();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
 
-  async function handleSignIn() {
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<LoginValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: "", password: "" },
+  });
+
+  async function onSubmit(values: LoginValues) {
     setError(null);
-
-    if (!isSupabaseConfigured()) {
-      setError("Supabase is not configured. Add apps/mobile/.env.local.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const supabase = getSupabase();
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email: email.trim().toLowerCase(),
-        password,
-      });
-
-      if (signInError) {
-        setError(signInError.message);
-      }
-    } catch {
-      setError("Unable to sign in. Check your connection and try again.");
-    } finally {
-      setLoading(false);
-    }
+    const result = await signInWithPassword(values.email, values.password);
+    if (!result.ok) setError(result.message);
   }
 
   return (
@@ -58,23 +47,34 @@ export default function LoginScreen() {
       ) : null}
 
       <View className="mt-10 gap-4">
-        <Input
+        <FormField
+          control={control}
+          name="email"
+          label="Email"
           autoCapitalize="none"
           autoComplete="email"
           keyboardType="email-address"
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
+          placeholder="you@example.com"
         />
-        <Input
+        <FormField
+          control={control}
+          name="password"
+          label="Password"
           secureTextEntry
           autoComplete="password"
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
+          placeholder="Your password"
         />
         {error ? <Text className="text-brand text-sm">{error}</Text> : null}
-        <Button label="Sign in" loading={loading} onPress={handleSignIn} />
+        <Button
+          label="Sign in"
+          loading={isSubmitting}
+          onPress={handleSubmit(onSubmit)}
+        />
+        <Button
+          label="Email me a magic link"
+          variant="secondary"
+          onPress={() => router.push("/(auth)/magic-link")}
+        />
       </View>
 
       <View className="mt-8 gap-3">

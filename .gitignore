@@ -13,6 +13,9 @@ web-build/
 # production
 build/
 
+# generated editorial copies (prebuild syncs from docs/design-bible)
+apps/website/public/editorial/cosmos/
+
 # misc
 .DS_Store
 *.pem

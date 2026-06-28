@@ -57,17 +57,13 @@ export function WaitlistForm() {
   return (
     <section
       id="waitlist"
-      className="border-t border-border bg-neutral-50 py-24 sm:py-32"
+      className="border-b border-border bg-neutral-50 py-24 sm:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="px-6 lg:px-10 xl:px-14">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <FadeIn>
-            <p className="text-editorial-label text-muted-foreground mb-6">
-              Join
-            </p>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              {WAITLIST_HEADLINE}
-            </h2>
+            <p className="text-editorial-kicker text-muted-foreground">Join</p>
+            <h2 className="text-editorial-section mt-6">{WAITLIST_HEADLINE}</h2>
             <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
               {WAITLIST_BODY}
             </p>
