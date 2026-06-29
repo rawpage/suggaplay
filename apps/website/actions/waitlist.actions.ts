@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { createAdminClient } from "@suggaplay/supabase/admin";
+import { createAnonClient } from "@suggaplay/supabase/anon";
 import type { ApiResponse } from "@suggaplay/types";
 
 const waitlistSchema = z.object({
@@ -27,7 +27,7 @@ export async function submitWaitlistAction(
   }
 
   try {
-    const supabase = createAdminClient();
+    const supabase = createAnonClient();
 
     const { error } = await supabase.from("waitlist_entries").insert({
       name: parsed.data.name,
@@ -42,6 +42,9 @@ export async function submitWaitlistAction(
           error: "This email is already on the waitlist.",
         };
       }
+
+      console.error("[waitlist]", error.code, error.message);
+
       return {
         success: false,
         error: "Unable to join the waitlist. Please try again.",
@@ -49,7 +52,9 @@ export async function submitWaitlistAction(
     }
 
     return { success: true, data: { email: parsed.data.email } };
-  } catch {
+  } catch (err) {
+    console.error("[waitlist]", err);
+
     return {
       success: false,
       error: "Unable to join the waitlist. Please try again.",
