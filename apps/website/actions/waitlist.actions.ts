@@ -1,18 +1,10 @@
 "use server";
 
-import { z } from "zod";
 import { createAnonClient } from "@suggaplay/supabase/anon";
 import type { ApiResponse } from "@suggaplay/types";
+import { waitlistSchema, type WaitlistFormInput } from "@/lib/waitlist-schema";
 
-const waitlistSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  gender: z.enum(["man", "woman"], {
-    message: "Please select how you identify",
-  }),
-});
-
-export type WaitlistFormInput = z.infer<typeof waitlistSchema>;
+export type { WaitlistFormInput };
 
 export async function submitWaitlistAction(
   input: WaitlistFormInput,
@@ -32,6 +24,7 @@ export async function submitWaitlistAction(
     const { error } = await supabase.from("waitlist_entries").insert({
       name: parsed.data.name,
       email: parsed.data.email.toLowerCase(),
+      city: parsed.data.city,
       gender: parsed.data.gender,
     });
 

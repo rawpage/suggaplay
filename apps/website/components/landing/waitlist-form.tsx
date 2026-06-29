@@ -4,24 +4,16 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { submitWaitlistAction } from "@/actions/waitlist.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FadeIn } from "@/components/motion/fade-in";
 import { WAITLIST_BODY, WAITLIST_HEADLINE } from "@/lib/constants";
+import { waitlistSchema, type WaitlistFormInput } from "@/lib/waitlist-schema";
 import { cn } from "@/lib/utils";
 
-const waitlistSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  gender: z.enum(["man", "woman"], {
-    message: "Please select how you identify",
-  }),
-});
-
-type WaitlistFormValues = z.infer<typeof waitlistSchema>;
+type WaitlistFormValues = WaitlistFormInput;
 
 export function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -36,7 +28,7 @@ export function WaitlistForm() {
     reset,
   } = useForm<WaitlistFormValues>({
     resolver: zodResolver(waitlistSchema),
-    defaultValues: { name: "", email: "", gender: undefined },
+    defaultValues: { name: "", email: "", city: "", gender: undefined },
   });
 
   const gender = watch("gender");
@@ -124,6 +116,24 @@ export function WaitlistForm() {
                     {errors.email && (
                       <p className="text-destructive text-sm">
                         {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="city" className="text-editorial-label">
+                      City
+                    </Label>
+                    <Input
+                      id="city"
+                      placeholder="Where are you based?"
+                      className="rounded-none border-black/20 focus-visible:border-black"
+                      aria-invalid={!!errors.city}
+                      {...register("city")}
+                    />
+                    {errors.city && (
+                      <p className="text-destructive text-sm">
+                        {errors.city.message}
                       </p>
                     )}
                   </div>
