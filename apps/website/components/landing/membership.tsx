@@ -57,7 +57,7 @@ export function Membership() {
       <div className="lg:pr-10 xl:pr-14">
         <div>
           <FadeIn delay={0.1}>
-            <article className="grid gap-8 bg-neutral-50 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-16 lg:px-0 lg:py-16">
+            <article className="grid gap-8 bg-neutral-50 px-6 py-10 sm:px-8 sm:py-14 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-16 lg:px-10 lg:py-16 xl:px-14">
               <div className="lg:pr-4">
                 <h3 className="text-editorial-headline">
                   {MEMBERSHIP_FOUNDING.title}
@@ -84,7 +84,7 @@ export function Membership() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <article className="grid gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-16 lg:px-0 lg:py-16">
+            <article className="grid gap-8 px-6 py-10 sm:px-8 sm:py-14 lg:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] lg:gap-16 lg:px-10 lg:py-16 xl:px-14">
               <div className="lg:pr-4">
                 <h3 className="text-editorial-headline">
                   {MEMBERSHIP_STANDARD.title}

@@ -62,7 +62,7 @@ export function Header() {
       </header>
 
       {/* Mobile top bar */}
-      <header className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-border bg-background/95 px-6 backdrop-blur-sm lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-border bg-background/95 pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] backdrop-blur-sm sm:pl-12 sm:pr-12 lg:hidden">
         <Link href="/" className="font-editorial text-2xl">
           {SITE_NAME.slice(0, 1)}
         </Link>
@@ -77,7 +77,7 @@ export function Header() {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-background pt-14 lg:hidden">
-          <nav className="flex flex-col gap-6 px-8 py-10">
+          <nav className="flex flex-col gap-6 pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] py-10 sm:pl-12 sm:pr-12">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}

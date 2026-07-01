@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <Header />
       <div className="lg:pl-[220px] xl:pl-[260px]">
-        <div className="overflow-x-hidden px-6 lg:mr-[72px] lg:min-h-screen lg:pl-10 lg:pr-0 xl:mr-[96px] xl:pl-14">
+        <div className="editorial-gutter overflow-x-hidden lg:mr-[72px] lg:min-h-screen lg:pr-0 xl:mr-[96px]">
           <main>
           <Hero />
 
