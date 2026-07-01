@@ -29,8 +29,8 @@ export function Intentions() {
             <p className="text-editorial-kicker mt-6">{INTENTIONS_CHOOSE}</p>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="mt-16">
-            <ul className="grid grid-cols-1 gap-px sm:grid-cols-2 xl:grid-cols-3">
+          <FadeIn delay={0.1} className="@container mt-16">
+            <ul className="grid grid-cols-1 gap-px @md:grid-cols-2 @3xl:grid-cols-3">
               {RELATIONSHIP_PREFERENCES.map((pref) => (
                 <li
                   key={pref.label}
@@ -39,7 +39,7 @@ export function Intentions() {
                   <span className="shrink-0 text-xl" aria-hidden="true">
                     {pref.icon}
                   </span>
-                  <span className="min-w-0 text-sm font-medium leading-snug">
+                  <span className="min-w-0 break-words text-sm font-medium leading-snug">
                     {pref.label}
                   </span>
                 </li>
