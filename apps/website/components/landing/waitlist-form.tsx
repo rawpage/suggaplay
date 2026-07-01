@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -80,23 +81,35 @@ export function WaitlistForm() {
 
           <FadeIn delay={0.1}>
             {submitted ? (
-              <div className="flex flex-col items-start border border-border bg-background p-8 text-black sm:p-10">
-                <CheckCircle2 className="size-10 text-brand" />
-                <p className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
-                  {WAITLIST_SUCCESS_HEADLINE}
-                </p>
-                <div className="mt-5 space-y-4 text-[15px] leading-[1.7] text-black/80">
-                  {WAITLIST_SUCCESS_BODY.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+              <div className="border border-border bg-background text-black">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-100">
+                  <Image
+                    src="/editorial/waitlist-success.png"
+                    alt="Two women in swimwear against a sunlit modernist backdrop"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                    className="object-cover object-top"
+                  />
                 </div>
-                <Button
-                  variant="outline"
-                  className="mt-8 rounded-none"
-                  onClick={() => setSubmitted(false)}
-                >
-                  Submit another request
-                </Button>
+                <div className="flex flex-col items-start p-8 sm:p-10">
+                  <CheckCircle2 className="size-10 text-brand" />
+                  <p className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
+                    {WAITLIST_SUCCESS_HEADLINE}
+                  </p>
+                  <div className="mt-5 space-y-4 text-[15px] leading-[1.7] text-black/80">
+                    {WAITLIST_SUCCESS_BODY.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="mt-8 rounded-none"
+                    onClick={() => setSubmitted(false)}
+                  >
+                    Submit another request
+                  </Button>
+                </div>
               </div>
             ) : (
               <form
