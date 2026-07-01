@@ -26,13 +26,19 @@ Add the same vars in Vercel → Project Settings → Environment Variables.
 
 ### Option A — CLI script (recommended)
 
-Add your **database password** to `.env.local`:
+Add your **database password** to `.env.local` (do not commit this file):
 
 ```env
+# Option A — used by npm run db:migrate
 SUPABASE_DB_PASSWORD=your-database-password
+
+# Option B — full connection string (alternative for some tools)
+# DATABASE_URL=postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
 ```
 
-Find it: **Project Settings → Database → Database password** (not the API keys).
+Find the password: **Project Settings → Database → Database password** (not the API keys).
+
+For `DATABASE_URL`, use **Project Settings → Database → Connection string → URI** (Session pooler or Transaction pooler).
 
 Then run:
 
