@@ -34,7 +34,9 @@ export default function Home() {
           <Intentions />
 
           <section className="bg-neutral-50 py-12">
-            <EditorialMosaic ids={gallery.slice(24, 40)} columns={4} />
+            <div className="editorial-section-inset">
+              <EditorialMosaic ids={gallery.slice(24, 40)} columns={4} />
+            </div>
           </section>
 
           <Problem />

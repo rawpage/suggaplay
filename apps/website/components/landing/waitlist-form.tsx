@@ -61,7 +61,7 @@ export function WaitlistForm() {
       id="waitlist"
       className="bg-neutral-50 py-24 sm:py-32"
     >
-      <div>
+      <div className="editorial-section-inset">
         <div className="grid gap-12 sm:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-x-16 xl:gap-x-24">
           <FadeIn className="flex min-w-0 flex-col gap-8 lg:gap-10 lg:pr-4 xl:pr-8">
             <EditorialKicker>Join</EditorialKicker>

@@ -143,8 +143,13 @@
     line-height: 1.1;
   }
 
-  /* Generous editorial outer margins — design bible spacing 48–64px */
+  /* Generous editorial outer margins — design bible spacing scale 32/48/64/96/128px */
   .editorial-gutter {
-    @apply pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] sm:pl-12 sm:pr-12 md:pl-14 md:pr-14 lg:pl-16 lg:pr-8 xl:pl-20 xl:pr-10;
+    @apply pl-[max(2rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))] sm:pl-12 sm:pr-12 md:pl-16 md:pr-16 lg:pl-24 lg:pr-16 xl:pl-32 xl:pr-24;
+  }
+
+  /* Inner inset for full-bleed coloured sections so content never hugs the block edge */
+  .editorial-section-inset {
+    @apply px-6 sm:px-10 lg:px-14 xl:px-20;
   }
 }
