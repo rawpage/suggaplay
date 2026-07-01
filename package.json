@@ -21,7 +21,8 @@
     "format:check": "prettier --check .",
     "typecheck": "npm run typecheck -w @suggaplay/types && npm run typecheck -w @suggaplay/supabase && npm run typecheck -w @suggaplay/tokens && npm run typecheck -w @suggaplay/website",
     "typecheck:mobile": "npm run typecheck -w @suggaplay/mobile",
-    "db:migrate": "node scripts/apply-migration.mjs"
+    "db:migrate": "node scripts/apply-migration.mjs",
+    "vercel:env": "node scripts/setup-vercel-env.mjs --scope bukikoshoni"
   },
   "devDependencies": {
     "dotenv": "^17.4.2",

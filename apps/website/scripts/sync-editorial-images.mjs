@@ -31,6 +31,14 @@ const ids = new Set(
   ].flat(),
 );
 
+// Replace local dev symlinks with real files (Vercel cannot package symlinks).
+if (fs.existsSync(destRoot)) {
+  const stat = fs.lstatSync(destRoot);
+  if (stat.isSymbolicLink()) {
+    fs.unlinkSync(destRoot);
+  }
+}
+
 fs.mkdirSync(destRoot, { recursive: true });
 
 for (const id of ids) {
