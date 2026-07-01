@@ -1,3 +1,4 @@
+import { BrandVideo } from "@/components/landing/brand-video";
 import { Hero } from "@/components/landing/hero";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { Intentions } from "@/components/landing/intentions";
@@ -23,6 +24,10 @@ export default function Home() {
         <div className="editorial-gutter overflow-x-hidden lg:mr-[72px] lg:min-h-screen lg:pr-0 xl:mr-[96px]">
           <main>
           <Hero />
+
+          <section className="py-12">
+            <BrandVideo />
+          </section>
 
           <section className="py-12">
             <EditorialSectionTitle className="mb-10">
