@@ -56,7 +56,7 @@ export function Header() {
               "bg-brand hover:bg-brand/90 w-full rounded-none text-white",
             )}
           >
-            Request Membership
+            Join waitlist
           </Link>
         </div>
       </header>
@@ -96,7 +96,7 @@ export function Header() {
               )}
               onClick={() => setMobileOpen(false)}
             >
-              Request Membership
+              Join waitlist
             </Link>
           </nav>
         </div>

@@ -47,7 +47,7 @@ export function Hero() {
                 "bg-brand hover:bg-brand/90 h-12 w-full rounded-none px-10 text-base text-white sm:w-auto",
               )}
             >
-              Request Membership
+              Join waitlist
             </Link>
             <Link
               href="#intentions"
