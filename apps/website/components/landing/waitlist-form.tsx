@@ -15,6 +15,15 @@ import { cn } from "@/lib/utils";
 
 type WaitlistFormValues = WaitlistFormInput;
 
+const GENDER_OPTIONS = [
+  { value: "woman", label: "Woman" },
+  { value: "man", label: "Man" },
+  { value: "non_binary", label: "Non-Binary" },
+] as const satisfies ReadonlyArray<{
+  value: WaitlistFormInput["gender"];
+  label: string;
+}>;
+
 export function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -141,8 +150,8 @@ export function WaitlistForm() {
 
                   <div className="space-y-3">
                     <Label className="text-editorial-label">I am a</Label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {(["woman", "man"] as const).map((value) => (
+                    <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-3">
+                      {GENDER_OPTIONS.map(({ value, label }) => (
                         <button
                           key={value}
                           type="button"
@@ -156,7 +165,7 @@ export function WaitlistForm() {
                               : "border-border bg-background hover:border-black",
                           )}
                         >
-                          {value === "woman" ? "Woman" : "Man"}
+                          {label}
                         </button>
                       ))}
                     </div>

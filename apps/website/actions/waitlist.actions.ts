@@ -2,7 +2,7 @@
 
 import { createAdminClient } from "@suggaplay/supabase/admin";
 import { createAnonClient } from "@suggaplay/supabase/anon";
-import type { ApiResponse } from "@suggaplay/types";
+import type { ApiResponse, Gender } from "@suggaplay/types";
 import { waitlistSchema, type WaitlistFormInput } from "@/lib/waitlist-schema";
 
 export type { WaitlistFormInput };
@@ -11,7 +11,7 @@ type WaitlistRow = {
   name: string;
   email: string;
   city: string;
-  gender: "man" | "woman";
+  gender: Gender;
 };
 
 async function insertWaitlistEntry(row: WaitlistRow) {

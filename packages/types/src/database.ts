@@ -7,7 +7,7 @@ export type Json =
   | Json[];
 
 export type UserRole = "member" | "admin";
-export type Gender = "man" | "woman";
+export type Gender = "man" | "woman" | "non_binary";
 export type OnlineStatus = "online" | "offline" | "away";
 export type SubscriptionStatus =
   | "none"

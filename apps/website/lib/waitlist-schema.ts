@@ -8,7 +8,7 @@ export const waitlistSchema = z.object({
     .trim()
     .min(2, "Please enter your city")
     .max(100, "City name is too long"),
-  gender: z.enum(["man", "woman"], {
+  gender: z.enum(["man", "woman", "non_binary"], {
     message: "Please select how you identify",
   }),
 });

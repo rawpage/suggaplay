@@ -8,6 +8,14 @@ function formatDate(iso: string) {
   }).format(new Date(iso));
 }
 
+function formatGender(gender: string | null) {
+  if (!gender) return "—";
+  if (gender === "non_binary") return "Non-Binary";
+  if (gender === "man") return "Man";
+  if (gender === "woman") return "Woman";
+  return gender;
+}
+
 export default async function AdminWaitlistPage() {
   let entries: {
     id: string;
@@ -77,7 +85,7 @@ export default async function AdminWaitlistPage() {
                 <tr key={entry.id} className="border-b border-neutral-100">
                   <td className="py-3 pr-4">{entry.name ?? "—"}</td>
                   <td className="py-3 pr-4">{entry.email}</td>
-                  <td className="py-3 pr-4 capitalize">{entry.gender ?? "—"}</td>
+                  <td className="py-3 pr-4">{formatGender(entry.gender)}</td>
                   <td className="py-3 pr-4">{entry.city ?? "—"}</td>
                   <td className="py-3 whitespace-nowrap text-neutral-600">
                     {formatDate(entry.created_at)}
