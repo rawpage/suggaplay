@@ -14,7 +14,9 @@ export function Footer() {
       <div className="py-16">
         <div className="grid gap-12 md:grid-cols-[2fr_1fr]">
           <div>
-            <p className="text-lg font-semibold tracking-tight">{SITE_NAME}</p>
+            <p className="font-editorial text-3xl font-normal uppercase leading-none tracking-[0.04em]">
+              Sugga Play
+            </p>
             <p className="mt-4 max-w-md text-sm leading-relaxed">
               {BRAND_DESCRIPTOR}
             </p>

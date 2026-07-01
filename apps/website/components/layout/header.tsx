@@ -23,9 +23,11 @@ export function Header() {
       <header className="fixed inset-y-0 left-0 z-50 hidden w-[220px] flex-col bg-background px-8 py-10 lg:flex xl:w-[260px]">
         <Link
           href="/"
-          className="font-editorial text-5xl font-normal leading-none tracking-tight"
+          aria-label={SITE_NAME}
+          className="font-editorial text-[2.75rem] font-normal uppercase leading-[0.85] tracking-[0.01em] xl:text-5xl"
         >
-          {SITE_NAME.slice(0, 1)}
+          <span className="block">Sugga</span>
+          <span className="block">Play</span>
         </Link>
 
         <p className="text-editorial-label mt-3">{LAUNCH_LABEL}</p>
@@ -63,8 +65,12 @@ export function Header() {
 
       {/* Mobile top bar */}
       <header className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between border-b border-border bg-background/95 pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] backdrop-blur-sm sm:pl-12 sm:pr-12 lg:hidden">
-        <Link href="/" className="font-editorial text-2xl">
-          {SITE_NAME.slice(0, 1)}
+        <Link
+          href="/"
+          aria-label={SITE_NAME}
+          className="font-editorial text-xl font-normal uppercase leading-none tracking-[0.06em]"
+        >
+          Sugga Play
         </Link>
         <button
           type="button"
