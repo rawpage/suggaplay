@@ -165,6 +165,6 @@ export const HOW_IT_WORKS_STEPS = [
   },
 ];
 
-export const WAITLIST_HEADLINE = "Request your membership.";
+export const WAITLIST_HEADLINE = "Request your place on the waitlist.";
 
-export const WAITLIST_BODY = `${BRAND_DESCRIPTOR} Join the curated global community.`;
+export const WAITLIST_BODY = `${BRAND_DESCRIPTOR} Submit your details to join the membership waitlist. We'll be in touch when your application is reviewed.`;

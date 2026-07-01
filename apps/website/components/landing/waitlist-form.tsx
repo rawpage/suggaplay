@@ -64,10 +64,11 @@ export function WaitlistForm() {
               <div className="flex flex-col items-start border border-border bg-background p-10">
                 <CheckCircle2 className="size-10 text-brand" />
                 <p className="mt-6 text-2xl font-semibold tracking-tight">
-                  You&apos;re on the list
+                  You&apos;re on the waitlist
                 </p>
                 <p className="mt-3 text-sm">
-                  We&apos;ll be in touch when your membership is ready.
+                  We&apos;ll review your request and be in touch when your
+                  membership is ready.
                 </p>
                 <Button
                   variant="outline"
@@ -182,7 +183,7 @@ export function WaitlistForm() {
                         Submitting...
                       </>
                     ) : (
-                      "Request Membership"
+                      "Join the waitlist"
                     )}
                   </Button>
 
