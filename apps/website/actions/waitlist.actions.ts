@@ -20,8 +20,19 @@ async function insertWaitlistEntry(row: WaitlistRow) {
     Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
   const hasServiceRole = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-  if (hasAnon) {
-    const supabase = createAnonClient();
+  // Server-side insert: prefer service role (bypasses RLS; works even if anon policy
+  // is missing on remote). Fall back to anon when only public keys are configured.
+  const clients: Array<"service" | "anon"> = hasServiceRole
+    ? hasAnon
+      ? ["service", "anon"]
+      : ["service"]
+    : hasAnon
+      ? ["anon"]
+      : [];
+
+  for (const kind of clients) {
+    const supabase =
+      kind === "service" ? createAdminClient() : createAnonClient();
     const { error } = await supabase.from("waitlist_entries").insert(row);
 
     if (!error) {
@@ -32,28 +43,14 @@ async function insertWaitlistEntry(row: WaitlistRow) {
       return { ok: false as const, duplicate: true as const, error };
     }
 
-    console.error("[waitlist] anon insert failed:", error.code, error.message);
+    console.error(`[waitlist] ${kind} insert failed:`, error.code, error.message);
   }
 
-  if (hasServiceRole) {
-    const supabase = createAdminClient();
-    const { error } = await supabase.from("waitlist_entries").insert(row);
-
-    if (!error) {
-      return { ok: true as const };
-    }
-
-    if (error.code === "23505") {
-      return { ok: false as const, duplicate: true as const, error };
-    }
-
-    console.error("[waitlist] admin insert failed:", error.code, error.message);
-    return { ok: false as const, duplicate: false as const, error };
+  if (clients.length === 0) {
+    console.error(
+      "[waitlist] missing env: set NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY (and/or SUPABASE_SERVICE_ROLE_KEY)",
+    );
   }
-
-  console.error(
-    "[waitlist] missing env: set NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY (and/or SUPABASE_SERVICE_ROLE_KEY)",
-  );
 
   return {
     ok: false as const,
