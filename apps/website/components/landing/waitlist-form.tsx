@@ -8,6 +8,7 @@ import { submitWaitlistAction } from "@/actions/waitlist.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { EditorialKicker } from "@/components/editorial/editorial-section";
 import { FadeIn } from "@/components/motion/fade-in";
 import { WAITLIST_BODY, WAITLIST_HEADLINE } from "@/lib/constants";
 import { waitlistSchema, type WaitlistFormInput } from "@/lib/waitlist-schema";
@@ -61,11 +62,15 @@ export function WaitlistForm() {
       className="bg-neutral-50 py-24 sm:py-32"
     >
       <div>
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-          <FadeIn>
-            <p className="text-editorial-kicker">Join</p>
-            <h2 className="text-editorial-section mt-6">{WAITLIST_HEADLINE}</h2>
-            <p className="mt-6 max-w-md leading-relaxed">{WAITLIST_BODY}</p>
+        <div className="grid gap-12 sm:gap-16 lg:grid-cols-2 lg:items-start lg:gap-20 xl:gap-24">
+          <FadeIn className="max-w-xl lg:max-w-2xl lg:pr-12 xl:pr-16">
+            <EditorialKicker>Join</EditorialKicker>
+            <h2 className="text-editorial-section mt-6 max-w-2xl">
+              {WAITLIST_HEADLINE}
+            </h2>
+            <p className="mt-8 max-w-lg text-lg leading-relaxed lg:mt-12">
+              {WAITLIST_BODY}
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.1}>
