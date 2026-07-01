@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-  BRAND_DESCRIPTOR,
-  SITE_DESCRIPTION,
-  SITE_HEADLINE,
-  SITE_NAME,
-  SITE_TAGLINE,
-} from "@/lib/constants";
-import { getSiteUrl } from "@/lib/seo";
+import { rootMetadata, siteViewport } from "@/lib/seo-metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,53 +22,8 @@ const editorialSerif = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl = getSiteUrl();
-
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
-    template: `%s | ${SITE_NAME}`,
-  },
-  description: SITE_DESCRIPTION,
-  applicationName: SITE_NAME,
-  authors: [{ name: SITE_NAME, url: siteUrl }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
-  category: "lifestyle",
-  formatDetection: {
-    telephone: false,
-    email: false,
-    address: false,
-  },
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: siteUrl,
-    siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${SITE_HEADLINE}`,
-    description: SITE_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${SITE_NAME} — ${BRAND_DESCRIPTOR}`,
-    description: SITE_DESCRIPTION,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata: Metadata = rootMetadata;
+export const viewport: Viewport = siteViewport;
 
 export default function RootLayout({
   children,

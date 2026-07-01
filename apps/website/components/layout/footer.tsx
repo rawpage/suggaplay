@@ -45,10 +45,10 @@ export function Footer() {
             &copy; {year} {SITE_NAME}
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="transition-colors hover:opacity-70">
+            <Link href="/privacy" className="transition-colors hover:opacity-70">
               Privacy
             </Link>
-            <Link href="#" className="transition-colors hover:opacity-70">
+            <Link href="/terms" className="transition-colors hover:opacity-70">
               Terms
             </Link>
           </div>

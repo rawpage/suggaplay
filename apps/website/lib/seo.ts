@@ -10,8 +10,22 @@ export function getSiteUrl(): string {
   return url.replace(/\/$/, "");
 }
 
+function getSocialProfiles(): string[] {
+  const profiles = [
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    process.env.NEXT_PUBLIC_TWITTER_URL,
+    process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  ];
+
+  return profiles
+    .map((profile) => profile?.trim())
+    .filter((profile): profile is string => Boolean(profile));
+}
+
 export function organizationJsonLd() {
   const url = getSiteUrl();
+  const sameAs = getSocialProfiles();
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -19,6 +33,13 @@ export function organizationJsonLd() {
     url,
     description: SITE_DESCRIPTION,
     slogan: BRAND_DESCRIPTOR,
+    logo: {
+      "@type": "ImageObject",
+      url: `${url}/icon`,
+      width: 32,
+      height: 32,
+    },
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
 
@@ -31,6 +52,7 @@ export function webSiteJsonLd() {
     url,
     description: SITE_DESCRIPTION,
     inLanguage: "en-GB",
+    publisher: { "@id": `${url}/#organization` },
   };
 }
 
