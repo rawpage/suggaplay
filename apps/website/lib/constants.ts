@@ -168,3 +168,15 @@ export const HOW_IT_WORKS_STEPS = [
 export const WAITLIST_HEADLINE = "Request your place on the waitlist.";
 
 export const WAITLIST_BODY = `${BRAND_DESCRIPTOR} Submit your details to join the membership waitlist. We'll be in touch when your application is reviewed.`;
+
+export const WAITLIST_SUCCESS_HEADLINE = "You're on the list.";
+
+/**
+ * Editorial success copy shown after a waitlist signup.
+ * Founding Member perks mirror MEMBERSHIP_FOUNDING to keep messaging consistent.
+ */
+export const WAITLIST_SUCCESS_BODY = [
+  "Thank you for joining. SuggaPlay opens its doors this September — a private members' club for modern relationships.",
+  "You now stand a chance of being among our first 500 Founding Members: your membership price locked in for life, unlimited access to every feature from day one, and lasting recognition as one of the people who shaped the club from the very beginning.",
+  "We'll be in touch before the doors open.",
+];

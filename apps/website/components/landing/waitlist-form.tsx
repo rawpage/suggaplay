@@ -10,7 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { EditorialKicker } from "@/components/editorial/editorial-section";
 import { FadeIn } from "@/components/motion/fade-in";
-import { WAITLIST_BODY, WAITLIST_HEADLINE } from "@/lib/constants";
+import {
+  WAITLIST_BODY,
+  WAITLIST_HEADLINE,
+  WAITLIST_SUCCESS_BODY,
+  WAITLIST_SUCCESS_HEADLINE,
+} from "@/lib/constants";
 import { waitlistSchema, type WaitlistFormInput } from "@/lib/waitlist-schema";
 import { cn } from "@/lib/utils";
 
@@ -75,15 +80,16 @@ export function WaitlistForm() {
 
           <FadeIn delay={0.1}>
             {submitted ? (
-              <div className="flex flex-col items-start border border-border bg-background p-10">
+              <div className="flex flex-col items-start border border-border bg-background p-8 text-black sm:p-10">
                 <CheckCircle2 className="size-10 text-brand" />
-                <p className="mt-6 text-2xl font-semibold tracking-tight">
-                  You&apos;re on the waitlist
+                <p className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
+                  {WAITLIST_SUCCESS_HEADLINE}
                 </p>
-                <p className="mt-3 text-sm">
-                  We&apos;ll review your request and be in touch when your
-                  membership is ready.
-                </p>
+                <div className="mt-5 space-y-4 text-[15px] leading-[1.7] text-black/80">
+                  {WAITLIST_SUCCESS_BODY.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
                 <Button
                   variant="outline"
                   className="mt-8 rounded-none"
