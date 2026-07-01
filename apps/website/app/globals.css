@@ -136,6 +136,13 @@
     line-height: 0.95;
   }
 
+  /* Section titles beside a form or narrow column — looser leading when lines wrap */
+  .text-editorial-section-split {
+    @apply font-editorial text-4xl font-normal sm:text-5xl lg:text-6xl xl:text-[4.25rem];
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+  }
+
   /* Generous editorial outer margins — design bible spacing 48–64px */
   .editorial-gutter {
     @apply pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] sm:pl-12 sm:pr-12 md:pl-14 md:pr-14 lg:pl-16 lg:pr-8 xl:pl-20 xl:pr-10;

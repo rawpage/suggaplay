@@ -62,13 +62,13 @@ export function WaitlistForm() {
       className="bg-neutral-50 py-24 sm:py-32"
     >
       <div>
-        <div className="grid gap-12 sm:gap-16 lg:grid-cols-2 lg:items-start lg:gap-20 xl:gap-24">
-          <FadeIn className="max-w-xl lg:max-w-2xl lg:pr-12 xl:pr-16">
+        <div className="grid gap-12 sm:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-x-16 xl:gap-x-24">
+          <FadeIn className="flex min-w-0 flex-col gap-8 lg:gap-10 lg:pr-4 xl:pr-8">
             <EditorialKicker>Join</EditorialKicker>
-            <h2 className="text-editorial-section mt-6 max-w-2xl">
+            <h2 className="text-editorial-section-split max-w-xl xl:max-w-2xl">
               {WAITLIST_HEADLINE}
             </h2>
-            <p className="mt-8 max-w-lg text-lg leading-relaxed lg:mt-12">
+            <p className="max-w-md text-lg leading-[1.7] lg:max-w-lg lg:text-xl">
               {WAITLIST_BODY}
             </p>
           </FadeIn>
