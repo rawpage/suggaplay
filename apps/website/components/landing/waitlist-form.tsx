@@ -90,7 +90,7 @@ export function WaitlistForm() {
             ) : (
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="border border-border bg-background p-8 sm:p-10"
+                className="border border-border bg-background p-6 sm:p-8 lg:p-10"
               >
                 <div className="space-y-6">
                   <div className="space-y-2">
@@ -150,7 +150,7 @@ export function WaitlistForm() {
 
                   <div className="space-y-3">
                     <Label className="text-editorial-label">I am a</Label>
-                    <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                       {GENDER_OPTIONS.map(({ value, label }) => (
                         <button
                           key={value}
@@ -159,7 +159,7 @@ export function WaitlistForm() {
                             setValue("gender", value, { shouldValidate: true })
                           }
                           className={cn(
-                            "border px-4 py-3 text-sm font-medium transition-colors",
+                            "border px-4 py-3 text-center text-sm font-medium transition-colors",
                             gender === value
                               ? "border-black bg-black text-white"
                               : "border-border bg-background hover:border-black",

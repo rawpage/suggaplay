@@ -30,16 +30,18 @@ export function Intentions() {
           </FadeIn>
 
           <FadeIn delay={0.1} className="mt-16">
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-px sm:grid-cols-2 xl:grid-cols-3">
               {RELATIONSHIP_PREFERENCES.map((pref) => (
                 <li
                   key={pref.label}
-                  className="flex items-center gap-4 bg-background px-5 py-5 transition-colors hover:bg-neutral-50"
+                  className="flex min-w-0 items-center gap-4 bg-background px-5 py-5 transition-colors hover:bg-neutral-50"
                 >
-                  <span className="text-xl" aria-hidden="true">
+                  <span className="shrink-0 text-xl" aria-hidden="true">
                     {pref.icon}
                   </span>
-                  <span className="text-sm font-medium">{pref.label}</span>
+                  <span className="min-w-0 text-sm font-medium leading-snug">
+                    {pref.label}
+                  </span>
                 </li>
               ))}
             </ul>

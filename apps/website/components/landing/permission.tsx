@@ -14,8 +14,8 @@ export function Permission() {
   return (
     <section id="permission">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px] lg:gap-10 xl:gap-14">
-        <div className="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)] lg:gap-10 xl:gap-14">
-          <aside className="grid grid-cols-2 gap-1 lg:grid-cols-1 lg:gap-0">
+        <div className="grid gap-8 xl:grid-cols-[320px_minmax(0,1fr)] xl:gap-14">
+          <aside className="grid grid-cols-2 gap-1 xl:grid-cols-1 xl:gap-0">
             {images.map((id) => (
               <EditorialImage
                 key={id}
@@ -40,9 +40,12 @@ export function Permission() {
             </FadeIn>
 
             <FadeIn delay={0.1} className="mt-12">
-              <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="grid grid-cols-1 gap-px sm:grid-cols-2 xl:grid-cols-3">
                 {PERMISSION_DESIRES.map((desire) => (
-                  <li key={desire} className="bg-background px-4 py-5 text-lg">
+                  <li
+                    key={desire}
+                    className="min-w-0 bg-background px-5 py-5 text-base leading-snug sm:text-lg"
+                  >
                     {desire}
                   </li>
                 ))}

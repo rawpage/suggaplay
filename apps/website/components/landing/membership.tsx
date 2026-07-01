@@ -62,7 +62,7 @@ export function Membership() {
                 <h3 className="text-editorial-headline">
                   {MEMBERSHIP_FOUNDING.title}
                 </h3>
-                <p className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+                <p className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                   {MEMBERSHIP_FOUNDING.priceLabel}
                 </p>
                 <p className="mt-4 text-sm font-semibold leading-snug sm:text-base">
@@ -89,7 +89,7 @@ export function Membership() {
                 <h3 className="text-editorial-headline">
                   {MEMBERSHIP_STANDARD.title}
                 </h3>
-                <p className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+                <p className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                   {MEMBERSHIP_STANDARD.priceLabel}
                 </p>
               </div>

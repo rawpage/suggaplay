@@ -12,7 +12,7 @@ export function Manifesto() {
             {MANIFESTO_BELIEFS.map((belief) => (
               <li
                 key={belief}
-                className="text-editorial-headline sm:text-4xl lg:text-5xl"
+                className="text-editorial-headline break-words sm:text-4xl lg:text-5xl"
               >
                 {belief}
               </li>

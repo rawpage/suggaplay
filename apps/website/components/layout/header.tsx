@@ -76,8 +76,8 @@ export function Header() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background pt-14 lg:hidden">
-          <nav className="flex flex-col gap-6 pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] py-10 sm:pl-12 sm:pr-12">
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-background pt-14 pb-[max(2.5rem,env(safe-area-inset-bottom))] lg:hidden">
+          <nav className="flex flex-col gap-6 py-10 pl-[max(2.5rem,env(safe-area-inset-left))] pr-[max(2.5rem,env(safe-area-inset-right))] sm:pl-12 sm:pr-12">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}

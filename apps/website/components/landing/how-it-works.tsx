@@ -13,7 +13,7 @@ export function HowItWorks() {
         <div className="mt-12">
           {HOW_IT_WORKS_STEPS.map((step, index) => (
             <FadeIn key={step.step} delay={index * 0.1}>
-              <div className="grid gap-6 py-12 sm:grid-cols-[100px_1fr] sm:gap-12 lg:py-16">
+              <div className="grid gap-4 py-12 md:grid-cols-[80px_1fr] md:gap-12 lg:py-16">
                 <p className="text-editorial-kicker text-brand">{step.step}</p>
                 <div>
                   <h3 className="text-editorial-headline">{step.title}</h3>

@@ -15,8 +15,8 @@ export function Problem() {
   return (
     <section>
       <div className="grid lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px] lg:gap-10 xl:gap-14">
-        <div className="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)] lg:gap-10 xl:gap-14">
-          <div className="grid grid-cols-2 gap-1 lg:grid-cols-1 lg:grid-rows-4 lg:gap-0">
+        <div className="grid gap-8 xl:grid-cols-[320px_minmax(0,1fr)] xl:gap-14">
+          <div className="grid grid-cols-2 gap-1 xl:grid-cols-1 xl:grid-rows-4 xl:gap-0">
             {images.map((id) => (
               <EditorialImage
                 key={id}
